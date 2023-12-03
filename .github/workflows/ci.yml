@@ -40,9 +40,9 @@ jobs:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true
 
-      - name: sass-embedded
-        run: |
-          gem install sass-embedded
+      # - name: sass-embedded
+      #   run: |
+      #     gem install sass-embedded
 
       - name: Run tests
         run: |
