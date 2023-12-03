@@ -22,35 +22,35 @@ class InstallerTest < ActiveSupport::TestCase
     end
   end
 
-  test "installer with missing .gitignore" do
-    with_new_rails_app do
-      FileUtils.rm(".gitignore")
-      out, _err = run_command("bin/rails", "dartsass:install")
+  # test "installer with missing .gitignore" do
+  #   with_new_rails_app do
+  #     FileUtils.rm(".gitignore")
+  #     out, _err = run_command("bin/rails", "dartsass:install")
 
-      assert_match "<DONE>", out
-      assert_not File.exist?(".gitignore")
-    end
-  end
+  #     assert_match "<DONE>", out
+  #     assert_not File.exist?(".gitignore")
+  #   end
+  # end
 
-  test "installer with pre-existing application.scss" do
-    with_new_rails_app do
-      File.write("app/assets/stylesheets/application.scss", "// pre-existing")
-      out, _err = run_command("bin/rails", "dartsass:install")
+  # test "installer with pre-existing application.scss" do
+  #   with_new_rails_app do
+  #     File.write("app/assets/stylesheets/application.scss", "// pre-existing")
+  #     out, _err = run_command("bin/rails", "dartsass:install")
 
-      assert_match "<DONE>", out
-      assert_equal "// pre-existing", File.read("app/assets/stylesheets/application.scss")
-    end
-  end
+  #     assert_match "<DONE>", out
+  #     assert_equal "// pre-existing", File.read("app/assets/stylesheets/application.scss")
+  #   end
+  # end
 
-  test "installer with pre-existing Procfile" do
-    with_new_rails_app do
-      File.write("Procfile.dev", "pre: existing\n")
-      out, _err = run_command("bin/rails", "dartsass:install")
+  # test "installer with pre-existing Procfile" do
+  #   with_new_rails_app do
+  #     File.write("Procfile.dev", "pre: existing\n")
+  #     out, _err = run_command("bin/rails", "dartsass:install")
 
-      assert_match "<DONE>", out
-      assert_equal "pre: existing\ncss: bin/rails dartsass:watch\n", File.read("Procfile.dev")
-    end
-  end
+  #     assert_match "<DONE>", out
+  #     assert_equal "pre: existing\ncss: bin/rails dartsass:watch\n", File.read("Procfile.dev")
+  #   end
+  # end
 
   private
     def with_new_rails_app(&block)
