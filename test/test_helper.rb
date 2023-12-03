@@ -53,7 +53,7 @@ module RailsAppHelpers
         # puts "?" * 50
         puts "~" * 50
         # system("gem pristine sass-embedded --version 1.69.5")
-        Bundler.with_unbundled_env { system("gem", "install", "sass-embedded") }
+        # Bundler.with_unbundled_env { system("gem", "install", "sass-embedded") }
         puts "~" * 50
         run_command("bundle", "install")
         system("cat", "/opt/hostedtoolcache/Ruby/3.0.6/x64/lib/ruby/gems/3.0.0/extensions/x86_64-linux/3.0.0/sass-embedded-1.69.5/gem_make.out")
