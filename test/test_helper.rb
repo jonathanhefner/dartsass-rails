@@ -47,10 +47,10 @@ module RailsAppHelpers
 
         File.write("Gemfile", gemfile)
 
-        puts "?" * 50
-        system("gem install rails --version 7.0.8")
-        system("rails _7.0.8_ new /tmp/wtf")
-        puts "?" * 50
+        # puts "?" * 50
+        # system("gem install rails --version 7.0.8")
+        # Dir.chdir("/tmp") { system("rails _7.0.8_ new wtf") }
+        # puts "?" * 50
         puts "~" * 50
         # system("gem", "install", "sass-embedded")
         system("gem pristine sass-embedded --version 1.69.5")
