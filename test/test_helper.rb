@@ -71,7 +71,13 @@ module RailsAppHelpers
 
     def run_command(*command)
       Bundler.with_unbundled_env do
-        capture_subprocess_io { system(*command, exception: true) }
+        puts "-" * 50
+        pp command
+        # capture_subprocess_io { system(*command, exception: true) }
+        x = capture_subprocess_io { system(*command) }
+        pp x
+        puts "-" * 50
+        x
       end
     end
 end
