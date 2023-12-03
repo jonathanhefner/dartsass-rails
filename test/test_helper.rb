@@ -45,7 +45,7 @@ module RailsAppHelpers
           gemfile << %(gem "rails", path: #{Gem.loaded_specs["rails"].full_gem_path.inspect}\n)
         end
 
-        gemfile << %(gem "psych", "~> 4.0.0"\n)
+        # gemfile << %(gem "psych", "~> 4.0.0"\n)
 
         File.write("Gemfile", gemfile)
 
