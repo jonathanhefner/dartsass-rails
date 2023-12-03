@@ -62,9 +62,10 @@ module RailsAppHelpers
 
     def with_new_rails_app(&block)
       require "digest/sha1"
-      variant = [Gem.loaded_specs["rails"].full_gem_path, asset_pipeline_option]
+      variant = [RUBY_VERSION, Gem.loaded_specs["rails"].full_gem_path, asset_pipeline_option]
       app_name = "app_#{Digest::SHA1.hexdigest(variant.to_s)}"
       cache_dir = "#{__dir__}/../tmp"
+      FileUtils.mkdir_p(cache_dir)
 
       Dir.mktmpdir do |tmpdir|
         if Dir.exist?("#{cache_dir}/#{app_name}")
