@@ -20,7 +20,7 @@ module RailsAppHelpers
     end
 
     def asset_pipeline_option
-      if Rails::VERSION::MAJOR > 7
+      if Rails::VERSION::MAJOR >= 7
         if propshaft?
           "--asset-pipeline=propshaft"
         elsif sprockets?
